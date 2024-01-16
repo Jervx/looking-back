@@ -10,7 +10,6 @@ export const registerUser : RequestHandler = async (req, res, next) => {
         const createdUser = await db.user.create({ data : { email, name, password } });
         res.status(201).json(createdUser)
     }catch(e){
-        res.status(500)
         next(e)
     }
 };
@@ -36,7 +35,6 @@ export const loginUser : RequestHandler = async ( req, res, next) => {
         res.status(200)
         res.json(user)
     }catch(e){
-        res.status(500)
         next(e)
     }
 }
